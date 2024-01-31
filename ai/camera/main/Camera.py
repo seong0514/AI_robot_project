@@ -5,7 +5,7 @@ width = 1280
 height = 720
 
 class Camera(CameraInterface):
-    def __init__(self):
+    def __init__(self) -> None:
         self.pi_cam = Picamera2()
         self.pi_cam.preview_configuration.main.size = (width, height)
         self.pi_cam.preview_configuration.main.format = "RGB888"
@@ -14,8 +14,9 @@ class Camera(CameraInterface):
         self.width = width
         self.height = height
 
-    def __enter__(self):
+    def __enter__(self) -> 'Camera':
         self.pi_cam.start()
+        return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.pi_cam.close()
