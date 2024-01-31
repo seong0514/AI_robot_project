@@ -1,0 +1,12 @@
+g++ -c -fPIC Lepton.cpp
+g++ -c -fPIC Lepton_I2C.cpp
+g++ -c -fPIC SPI.cpp
+g++ -c -fPIC Palettes.cpp
+gcc -c -fPIC leptonSDKEmb32PUB/LEPTON_SDK.c
+gcc -c -fPIC leptonSDKEmb32PUB/LEPTON_SYS.c
+gcc -c -fPIC leptonSDKEmb32PUB/LEPTON_OEM.c
+gcc -c -fPIC leptonSDKEmb32PUB/LEPTON_I2C_Protocol.c
+gcc -c -fPIC leptonSDKEmb32PUB/LEPTON_I2C_Service.c
+gcc -c -fPIC leptonSDKEmb32PUB/raspi_I2C.c
+gcc -c -fPIC leptonSDKEmb32PUB/crc16fast.c
+g++ -shared -o libLepton.so Lepton.o Lepton_I2C.o SPI.o leptonSDKEmb32PUB/LEPTON_SDK.o leptonSDKEmb32PUB/LEPTON_SYS.o leptonSDKEmb32PUB/LEPTON_OEM.o Palettes.o leptonSDKEmb32PUB/LEPTON_I2C_Protocol.o leptonSDKEmb32PUB/LEPTON_I2C_Service.o leptonSDKEmb32PUB/raspi_I2C.o leptonSDKEmb32PUB/crc16fast.o
