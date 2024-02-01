@@ -16,9 +16,25 @@ class Lepton(CameraInterface):
     '''
 
     def __init__(self) -> None:
+        '''
+        C 라이브러리를 가져오고
+
+        Lepton 객체를 가져오기 위해 myLib의 Lepton_new 메소드의 리턴 값을 포인터로 설정해 int로의 자동 형변환을 방지한다.
+
+        '''
         self.mylib = ctypes.CDLL(leptonLibPath)
         self.mylib.Lepton_new.restype = ctypes.POINTER(ctypes.c_int)
         self.lepton = self.mylib.Lepton_new()
+
+    def __enter__(self) -> 'Lepton':
+        '''
+        이 기능을 활용하려면 Lepton.cpp 파일을 수정해야함
+        :return:
+        '''
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb) -> None:
+        pass
 
     def get_width(self) -> int:
         return self.mylib.Lepton_get_width(self.lepton)

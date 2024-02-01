@@ -1,3 +1,15 @@
+이 폴더의 내용을 수정하고 싶으면 윈도우에서는 wsl을 사용해 visual studio code로 작성하는 것을 추천함
+
+일단
+```shell
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install wget ca-certificates
+code .
+```
+
+아래는 원본 readme.md임
+
 This example is meant for Raspberry Pi, Pi2, Pi3, PiZero, & Pi4 and has been tested with Raspbian.
 
 First enable the SPI and I2C interfaces on the Pi.

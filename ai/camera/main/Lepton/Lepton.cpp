@@ -33,6 +33,8 @@ Lepton::Lepton() {
 	autoRangeMax = true;
 	rangeMin = 30000;
 	rangeMax = 32000;
+
+	spi_status = false;
 }
 
 Lepton::~Lepton() {
@@ -104,7 +106,7 @@ void Lepton::useRangeMaxValue(uint16_t newMaxValue)
 
 int* Lepton::get_image()
 {
-	//create the initial image
+	// 3차원의 동적 배열로 만들면 각 행마다 다른 주소값을 가지게 되므로 귀찮아지기에 어차피
 	int* image = new int [myImageHeight*myImageWidth*3];
 	
 	const int* colormap = selectedColormap;
@@ -118,8 +120,6 @@ int* Lepton::get_image()
 
 	//open spi port
 	SpiOpenPort(0, spiSpeed);
-
-	
 
 	//read data packets from lepton over SPI
 	int resets = 0;

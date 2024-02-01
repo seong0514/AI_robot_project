@@ -3,7 +3,7 @@ from ai.camera.main.CameraInterface import CameraInterface
 
 class WebCam(CameraInterface):
     '''
-    windows 환경에서 돌리기 위해서 만들어 보긴 했는데 실사용은 안할 것으로 보임
+    windows 환경에서 테스트하기 위해서 만들어 보긴 했는데 실사용은 안할 것으로 보임
     '''
 
     def __init__(self):

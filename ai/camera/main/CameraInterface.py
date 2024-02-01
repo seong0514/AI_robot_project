@@ -10,16 +10,22 @@ class CameraInterface(metaclass=ABCMeta):
     def get_width(self) -> int:
         '''
         카메라의 가로 길이를 반환한다.
+        :return: 가로 길이 int
         '''
         raise NotImplementedError
 
     @abstractmethod
     def get_height(self) -> int:
         '''
-        
+        카메라의 세로 길이를 반환한다.
+        :return: 세로길이 int
         '''
         raise NotImplementedError
 
     @abstractmethod
     def get_image(self) -> np.ndarray:
+        '''
+        이미지를 numpy의 ndarray로 반환한다.
+        :return: 이미지
+        '''
         raise NotImplementedError
